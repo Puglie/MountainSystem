@@ -1,0 +1,9 @@
+<html>
+	<head>
+		<title>Result</title>
+	</head>
+	<body>
+		<h1>RESULT</h1>
+		${research}
+	</body>
+</html>
