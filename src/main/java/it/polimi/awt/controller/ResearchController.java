@@ -18,15 +18,17 @@ import org.springframework.web.servlet.ModelAndView;
 public class ResearchController {
 	
 	@RequestMapping("/mountainResearch")
-	public ModelAndView mountainResearch(){
-		return new ModelAndView ("mountainResearch", "command", new Research());
+	public String mountainResearch(Model model){
+		
+		model.addAttribute("command", new Research());
+		return "mountainResearch";
 	}
 	
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
-	public ModelAndView databaseResult(@ModelAttribute("research") Research research, BindingResult result ){
+	public String databaseResult(Research research){
 		
 		
-		return new ModelAndView("resultView", "result", research);
+		return "resultView";
 		
 	}
 	
