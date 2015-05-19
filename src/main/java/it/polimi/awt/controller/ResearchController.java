@@ -85,6 +85,12 @@ public class ResearchController {
 	        System.out.println(i + " - Description: " + photo.getSmallUrl());
 
 	    }	
+	    Iterator urlIt=url.iterator();
+	    String urlS=null;
+	    while(urlIt.hasNext()){
+	    	urlS=urlIt.next().toString();
+	    	System.out.println(urlS);
+	    }
 	    
 	    model.addAttribute("url", url);
 		
