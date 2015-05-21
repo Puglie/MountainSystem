@@ -7,7 +7,6 @@
 
 	<h1>This is our first page that we'll have to modify in a future.</h1>
 	<a href="mountainResearch.html">Click here to research a mountain</a>
-	<a href="connect.html">Click here to connect</a>
 
 </body>
 </html>

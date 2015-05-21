@@ -53,25 +53,15 @@ public class ResearchController {
 	}
 	
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
-	public String databaseResult(Research research){
-		
-		
-		return "resultView";
-		
-	}
-	
-	@RequestMapping("connect")
-	public String connetcToFlickr(Model model) throws FlickrException{
+	public String databaseResult(Research research, Model model) throws FlickrException{
 		String apiKey = "033e35849e5c7266413f18c0e18d0700";
 		String sharedSecret = "21bec8e11859220e";
-		
-
-	    // Create a Flickr instance with your data. No need to authenticate
+		// Create a Flickr instance with your data. No need to authenticate
 	    Flickr flickr = new Flickr(apiKey, sharedSecret, new REST());
 
 	    // Set the wanted search parameters (I'm not using real variables in the example)
 	    SearchParameters searchParameters = new SearchParameters();
-	    searchParameters.setText("Monte Bianco");;
+	    searchParameters.setText(research.getName());;
 
 	    PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 0, 0);
 	    ArrayList<String> url=new ArrayList<String>();
@@ -94,7 +84,8 @@ public class ResearchController {
 	    
 	    model.addAttribute("url", url);
 		
-		return "connect";
+		return "resultView";
+		
 	}
 	
 	/*@RequestMapping("/addMountain")
