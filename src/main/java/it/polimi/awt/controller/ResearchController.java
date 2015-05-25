@@ -14,10 +14,11 @@ import java.util.List;
 
 
 
+
 import javax.swing.text.Element;
 import javax.xml.transform.Source;
 
-import it.polimi.awt.model.Research;
+import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.service.ResearchServiceInterface;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,12 +55,12 @@ public class ResearchController {
 	@RequestMapping("/mountainResearch")
 	public String mountainResearch(Model model){
 		
-		model.addAttribute("command", new Research());
+		model.addAttribute("command", new Mountain());
 		return "mountainResearch";
 	}
 	
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
-	public String databaseResult(Research research, Model model) throws FlickrException{
+	public String databaseResult(Mountain research, Model model) throws FlickrException{
 		
 	    
 	    model.addAttribute("url", rsi.getUrl(research));

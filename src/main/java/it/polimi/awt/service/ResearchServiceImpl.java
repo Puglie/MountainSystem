@@ -1,6 +1,6 @@
 package it.polimi.awt.service;
 
-import it.polimi.awt.model.Research;
+import it.polimi.awt.domain.Mountain;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,7 +18,7 @@ import com.flickr4java.flickr.photos.SearchParameters;
 public class ResearchServiceImpl implements ResearchServiceInterface{
 
 	@Override
-	public ArrayList<String> getUrl(Research research) throws FlickrException {
+	public ArrayList<String> getUrl(Mountain research) throws FlickrException {
 		String apiKey = "033e35849e5c7266413f18c0e18d0700";
 		String sharedSecret = "21bec8e11859220e";
 		// Create a Flickr instance with your data. No need to authenticate

@@ -1,10 +1,24 @@
-package it.polimi.awt.model;
+package it.polimi.awt.domain;
 
-public class Research {
+public class Mountain {
 	
 	private String name;
 	private String location;
+	private String latitude;
+	private String longitude;
 	
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
 	public String getName() {
 		return name;
 	}
