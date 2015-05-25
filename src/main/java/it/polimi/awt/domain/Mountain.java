@@ -6,7 +6,14 @@ public class Mountain {
 	private String location;
 	private String latitude;
 	private String longitude;
+	private boolean isSelected=false;
 	
+	public boolean isSelected() {
+		return isSelected;
+	}
+	public void setSelected(boolean isSelected) {
+		this.isSelected = isSelected;
+	}
 	public String getLatitude() {
 		return latitude;
 	}
