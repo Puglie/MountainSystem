@@ -12,11 +12,15 @@ import java.util.List;
 
 
 
+
+
 import javax.swing.text.Element;
 import javax.xml.transform.Source;
 
 import it.polimi.awt.model.Research;
+import it.polimi.awt.service.ResearchServiceInterface;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -44,6 +48,8 @@ import com.sun.corba.se.impl.orbutil.graph.Node;
 @Controller
 @SessionAttributes
 public class ResearchController {
+	@Autowired
+	ResearchServiceInterface rsi;
 	
 	@RequestMapping("/mountainResearch")
 	public String mountainResearch(Model model){
@@ -54,35 +60,9 @@ public class ResearchController {
 	
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
 	public String databaseResult(Research research, Model model) throws FlickrException{
-		String apiKey = "033e35849e5c7266413f18c0e18d0700";
-		String sharedSecret = "21bec8e11859220e";
-		// Create a Flickr instance with your data. No need to authenticate
-	    Flickr flickr = new Flickr(apiKey, sharedSecret, new REST());
-
-	    // Set the wanted search parameters (I'm not using real variables in the example)
-	    SearchParameters searchParameters = new SearchParameters();
-	    searchParameters.setText(research.getName());;
-
-	    PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 0, 0);
-	    ArrayList<String> url=new ArrayList<String>();
-		int i=0;
-		Photo photo=null;
-	    Iterator photoIterator = list.iterator();
-	    while (photoIterator.hasNext()) {
-	        i++;
-	        photo = (Photo) photoIterator.next();
-	        url.add(photo.getSmallUrl());
-	        System.out.println(i + " - Description: " + photo.getSmallUrl());
-
-	    }	
-	    Iterator urlIt=url.iterator();
-	    String urlS=null;
-	    while(urlIt.hasNext()){
-	    	urlS=urlIt.next().toString();
-	    	System.out.println(urlS);
-	    }
+		
 	    
-	    model.addAttribute("url", url);
+	    model.addAttribute("url", rsi.getUrl(research));
 		
 		return "resultView";
 		

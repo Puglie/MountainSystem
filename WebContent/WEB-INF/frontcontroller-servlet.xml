@@ -3,6 +3,8 @@
  
     <context:component-scan
         base-package="it.polimi.awt.controller" />
+        <context:component-scan
+        base-package="it.polimi.awt.service" />
         <mvc:annotation-driven/>
  	<mvc:view-controller view-name="index" path="/"/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
