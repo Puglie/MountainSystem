@@ -69,6 +69,15 @@ public class ResearchController {
 		
 	}
 	
+	
+	@RequestMapping(value="/map")
+public String map(Model model){
+		
+		
+		return "map";
+	}
+	
+	
 	/*@RequestMapping("/addMountain")
 	public String addMountain(Research research){
 		
