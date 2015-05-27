@@ -62,7 +62,6 @@ public class ResearchController {
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
 	public String databaseResult(Mountain research, Model model) throws FlickrException{
 		
-	    
 	    model.addAttribute("url", rsi.getUrl(research));
 		
 		return "resultView";
@@ -71,9 +70,7 @@ public class ResearchController {
 	
 	
 	@RequestMapping(value="/map")
-public String map(Model model){
-		
-		
+	public String map(Model model){
 		return "map";
 	}
 	
