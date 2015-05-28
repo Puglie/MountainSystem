@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+
+
+	<bean class="org.apache.commons.dbcp2.BasicDataSource" id="dataSource">
+
+		<property value="com.mysql.jdbc.Driver" name="driverClassName" />
+
+		<property value="jdbc:mysql://localhost:3306/alps"
+			name="url" />
+
+		<property value="root" name="username" />
+
+		<property value="" name="password" />
+
+	</bean>
+
+
+	<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+		id="jpaVendorAdapter">
+
+		<property value="MYSQL" name="database" />
+
+		<property value="true" name="showSql" />
+
+		<property value="true" name="generateDdl" />
+
+	</bean>
+
+
+	<bean
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+		id="emf">
+
+		<property name="dataSource" ref="dataSource" />
+
+		<property value="it.polimi.awt.springmvc.domain" name="packagesToScan" />
+
+		<property value="BookUnit" name="persistenceUnitName" />
+
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+
+	</bean>
+
+
+	<bean class="org.springframework.orm.jpa.JpaTransactionManager"
+		id="transactionManager">
+
+		<property name="entityManagerFactory" ref="emf" />
+
+	</bean>
+
+	<tx:annotation-driven />
+
+</beans>
