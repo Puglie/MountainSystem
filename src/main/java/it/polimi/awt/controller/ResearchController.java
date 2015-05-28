@@ -15,11 +15,15 @@ import java.util.List;
 
 
 
+
+
 import javax.swing.text.Element;
 import javax.xml.transform.Source;
 
 import it.polimi.awt.domain.Mountain;
+import it.polimi.awt.service.MountainService;
 import it.polimi.awt.service.ResearchServiceInterface;
+import it.polimi.awt.service.StringValidationServiceInterface;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,6 +55,10 @@ import com.sun.corba.se.impl.orbutil.graph.Node;
 public class ResearchController {
 	@Autowired
 	ResearchServiceInterface rsi;
+	@Autowired
+	StringValidationServiceInterface svsi;
+	@Autowired
+	MountainService ms;
 	
 	@RequestMapping("/mountainResearch")
 	public String mountainResearch(Model model){
@@ -61,10 +69,17 @@ public class ResearchController {
 	
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
 	public String databaseResult(Mountain research, Model model) throws FlickrException{
+		if(svsi.validMountain(research, ms.findAll())){
+			model.addAttribute("url", rsi.getUrl(research));
+			return "resultView";
+		}else{
+			model.addAttribute("command", new Mountain());
+			return "mountainResearch";
+		}
 		
-	    model.addAttribute("url", rsi.getUrl(research));
+	    
 		
-		return "resultView";
+		
 		
 	}
 	

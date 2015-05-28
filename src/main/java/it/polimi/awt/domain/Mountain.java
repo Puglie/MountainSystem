@@ -18,11 +18,11 @@ public class Mountain {
 	private String icon;
 	private String latitude;
 	private String longitude;
-	//private boolean isSelected=false;
+	private boolean isSelected=false;
 	
-	/*public boolean isSelected() {
+	public boolean isSelected() {
 		return isSelected;
-	}*/
+	}
 	
 	public String getElevation() {
 		return elevation;
@@ -70,9 +70,9 @@ public class Mountain {
 	public void setId(String id) {
 		this.id = id;
 	}
-	/*public void setSelected(boolean isSelected) {
+	public void setSelected(boolean isSelected) {
 		this.isSelected = isSelected;
-	}*/
+	}
 	public String getLatitude() {
 		return latitude;
 	}

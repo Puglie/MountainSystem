@@ -1,13 +1,13 @@
 package it.polimi.awt.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import it.polimi.awt.domain.Mountain;
 
 public interface StringValidationServiceInterface {
 	
-	ArrayList<Mountain> findAllMountains();
-	Boolean validMountain(Mountain research, ArrayList<Mountain> mountains);
+	Boolean validMountain(Mountain research, List<Mountain> mountains);
 	
 }
 
