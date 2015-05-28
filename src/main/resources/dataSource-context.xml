@@ -8,51 +8,32 @@
 
 
 	<bean class="org.apache.commons.dbcp2.BasicDataSource" id="dataSource">
-
 		<property value="com.mysql.jdbc.Driver" name="driverClassName" />
-
 		<property value="jdbc:mysql://localhost:3306/alps"
 			name="url" />
-
 		<property value="root" name="username" />
-
-		<property value="" name="password" />
-
+		<property value="password" name="password" />
 	</bean>
-
 
 	<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
 		id="jpaVendorAdapter">
-
 		<property value="MYSQL" name="database" />
-
 		<property value="true" name="showSql" />
-
 		<property value="true" name="generateDdl" />
-
 	</bean>
-
 
 	<bean
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 		id="emf">
-
 		<property name="dataSource" ref="dataSource" />
-
-		<property value="it.polimi.awt.springmvc.domain" name="packagesToScan" />
-
-		<property value="BookUnit" name="persistenceUnitName" />
-
+		<property value="it.polimi.awt.domain" name="packagesToScan" />
+		<property value="MountainUnit" name="persistenceUnitName" />
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
-
 	</bean>
-
 
 	<bean class="org.springframework.orm.jpa.JpaTransactionManager"
 		id="transactionManager">
-
 		<property name="entityManagerFactory" ref="emf" />
-
 	</bean>
 
 	<tx:annotation-driven />

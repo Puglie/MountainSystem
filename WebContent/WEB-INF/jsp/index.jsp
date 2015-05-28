@@ -9,7 +9,10 @@
 	<a href="mountainResearch.html">Click here to research a mountain</a>
 	
 	<h1> Go to google map</h1>
-	<a href="map.html">Click here to research a mountain</a>
+	<a href="map.html">Click here to go to map</a>
+	
+	<h1> Go to see a mountain list</h1>
+	<a href="mountains.html">Click here for mountains</a>
 
 </body>
 </html>
