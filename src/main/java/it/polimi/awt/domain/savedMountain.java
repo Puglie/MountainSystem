@@ -7,6 +7,19 @@ public class savedMountain {
 	private int longitude;
 	private String name;
 	private String url;
+	private boolean isSelected;
+	public savedMountain(){
+		isSelected=false;
+	}
+	
+	public boolean isSelected() {
+		return isSelected;
+	}
+
+	public void setSelected(boolean isSelected) {
+		this.isSelected = isSelected;
+	}
+
 	public String getId() {
 		return id;
 	}

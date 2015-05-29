@@ -70,7 +70,7 @@ public class ResearchController {
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
 	public String databaseResult(Mountain research, Model model) throws FlickrException{
 		if(svsi.validMountain(research, ms.findAll())){
-			model.addAttribute("url", rsi.getUrl(research));
+			model.addAttribute("mountain", rsi.getSavedMountain(research));
 			return "resultView";
 		}else{
 			model.addAttribute("command", new Mountain());

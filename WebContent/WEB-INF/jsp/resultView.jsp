@@ -4,12 +4,12 @@
 <title>images</title>
 </head>
 <body>
-	<!--<c:forEach items="${url}" var="url" varStatus="status">
-		<img src=${url } width="300" height="300">
-		<p>${url}</p>
-	</c:forEach>-->
-	<c:forEach items="${url}" var="url">
-    <img src=${url}  width="214" height="138" />
-</c:forEach>
+	<form ACTION="jspCheckBox.jsp">
+		<c:forEach items="${mountain}" var="mountain">
+    		<img src=${mountain.url}  width="214" height="138" /> 
+    		<input type="checkbox" name="id" value=${mountain}> 
+		</c:forEach>
+		<input type="submit" value="Save Images">
+	</form>
 </body>
 </html>
