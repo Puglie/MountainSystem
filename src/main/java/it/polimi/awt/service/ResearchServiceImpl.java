@@ -35,11 +35,9 @@ public class ResearchServiceImpl implements ResearchServiceInterface{
 	    PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 0, 0);
 	    ArrayList<String> url=new ArrayList<String>();
 	    ListSavedMountain mountains=new ListSavedMountain();
-		int i=0;
 		Photo photo=null;
-	    Iterator photoIterator = list.iterator();
+	    Iterator<Photo> photoIterator = list.iterator();
 	    while (photoIterator.hasNext()) {
-	        i++;
 	        photo = (Photo) photoIterator.next();
 	        SavedMountain s=new SavedMountain();
 	        s.setUrl(photo.getSmallUrl());
@@ -49,13 +47,6 @@ public class ResearchServiceImpl implements ResearchServiceInterface{
 	    //    System.out.println(i + " - Description: " + photo.getSmallUrl());
 
 	    }	
-	    Iterator urlIt=url.iterator();
-	    String urlS=null;
-	    while(urlIt.hasNext()){
-	    	urlS=urlIt.next().toString();
-	    //	System.out.println(urlS);
-	    }
-		//return url;
 	    return mountains;
 	}
 

@@ -2,7 +2,6 @@ package it.polimi.awt.service;
 
 import it.polimi.awt.domain.Mountain;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class StringValidationServiceImpl implements StringValidationServiceInter
 	public Boolean validMountain(Mountain research, List<Mountain> mountains) {
 		Mountain mountain;
 		boolean isPresent=false;
-		Iterator iterator = mountains.iterator();
+		Iterator<Mountain> iterator = mountains.iterator();
 	    while (iterator.hasNext()) {
 	        mountain = (Mountain) iterator.next();
 	        if(research.getName().toUpperCase().equals(mountain.getName().toUpperCase())){

@@ -1,7 +1,5 @@
 package it.polimi.awt.domain;
 
-import java.util.List;
-
 public class SavedMountain {
 	
 	private String id;
@@ -10,23 +8,11 @@ public class SavedMountain {
 	private String name;
 	private String url;
 	private String isSelected;
-	private List<Mountain> mountains;
 	
 	public SavedMountain(){
 		isSelected="unchecked";
 	}
 	
-	public List<Mountain> getMountains() {
-		return mountains;
-	}
-
-
-
-	public void setMountains(List<Mountain> mountains) {
-		this.mountains = mountains;
-	}
-
-
 
 	public void setSelected(String isSelected) {
 		this.isSelected = isSelected;
