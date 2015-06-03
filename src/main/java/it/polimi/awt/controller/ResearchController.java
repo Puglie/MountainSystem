@@ -17,10 +17,14 @@ import java.util.List;
 
 
 
+
+
 import javax.swing.text.Element;
 import javax.xml.transform.Source;
 
+import it.polimi.awt.domain.ListSavedMountain;
 import it.polimi.awt.domain.Mountain;
+import it.polimi.awt.domain.SavedMountain;
 import it.polimi.awt.service.MountainService;
 import it.polimi.awt.service.ResearchServiceInterface;
 import it.polimi.awt.service.StringValidationServiceInterface;
@@ -70,7 +74,8 @@ public class ResearchController {
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
 	public String databaseResult(Mountain research, Model model) throws FlickrException{
 		if(svsi.validMountain(research, ms.findAll())){
-			model.addAttribute("mountain", rsi.getSavedMountain(research));
+			model.addAttribute("mountain", rsi.getSavedMountain(research).getMountains());
+			model.addAttribute("command", new ListSavedMountain());
 			return "resultView";
 		}else{
 			model.addAttribute("command", new Mountain());

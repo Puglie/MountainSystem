@@ -1,22 +1,44 @@
 package it.polimi.awt.domain;
 
-public class savedMountain {
+import java.util.List;
+
+public class SavedMountain {
 	
 	private String id;
 	private int latitude;
 	private int longitude;
 	private String name;
 	private String url;
-	private boolean isSelected;
-	public savedMountain(){
-		isSelected=false;
+	private String isSelected;
+	private List<Mountain> mountains;
+	
+	public SavedMountain(){
+		isSelected="unchecked";
 	}
 	
-	public boolean isSelected() {
+	public List<Mountain> getMountains() {
+		return mountains;
+	}
+
+
+
+	public void setMountains(List<Mountain> mountains) {
+		this.mountains = mountains;
+	}
+
+
+
+	public void setSelected(String isSelected) {
+		this.isSelected = isSelected;
+	}
+
+
+
+	public String getIsSelected() {
 		return isSelected;
 	}
 
-	public void setSelected(boolean isSelected) {
+	public void setIsSelected(String isSelected) {
 		this.isSelected = isSelected;
 	}
 

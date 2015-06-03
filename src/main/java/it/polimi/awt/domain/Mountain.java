@@ -20,6 +20,7 @@ public class Mountain {
 	private String longitude;
 	private boolean isSelected=false;
 	
+
 	public boolean isSelected() {
 		return isSelected;
 	}
