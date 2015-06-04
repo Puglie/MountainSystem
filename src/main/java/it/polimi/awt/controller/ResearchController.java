@@ -38,7 +38,6 @@ public class ResearchController {
 	public String databaseResult(Mountain research, Model model) throws FlickrException{
 		if(svsi.validMountain(research, ms.findAll())){
 			model.addAttribute("mountain", rsi.getSavedMountain(research).getMountains());
-			model.addAttribute("command", new ListSavedMountain());
 			return "resultView";
 		}else{
 			model.addAttribute("command", new Mountain());

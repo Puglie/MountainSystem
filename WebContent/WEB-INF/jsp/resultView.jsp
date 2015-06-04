@@ -8,7 +8,8 @@
 	<form:form method="post" action="saveImage.html" > 
 		<c:forEach items="${mountain}" var="mountain">
     		<img src="${mountain.url}"  width="214" height="138" /> 
-    	 	<input type="checkbox" name="id" value="${mountain.url}" ${mountain.isSelected}/> 
+    	 	<input type="checkbox" name="url[]" value="${mountain.url}"}/> 
+    	 	<input type="hidden" name="name[]" value="${mountain.name}">
 		</c:forEach> 
 	 	<input type="submit" value="Save Images"> 
 	 </form:form>
