@@ -39,6 +39,8 @@ public class ResearchServiceImpl implements ResearchServiceInterface{
 	    while (photoIterator.hasNext()) {
 	        photo = (Photo) photoIterator.next();
 	        SavedMountain s=new SavedMountain();
+	        s.setLatitude(research.getLatitude_decimal());
+	        s.setLongitude(research.getLongitude_decimal());
 	        s.setUrl(photo.getSmallUrl());
 	        s.setName(research.getName());
 	        mountains.add(s);

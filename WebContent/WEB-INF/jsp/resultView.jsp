@@ -10,6 +10,8 @@
     		<img src="${mountain.url}"  width="214" height="138" /> 
     	 	<input type="checkbox" name="url[]" value="${mountain.url}"/> 
     	 	<input type="hidden" name="name[]" value="${mountain.name}">
+    	 	<input type="hidden" name="latitude[]" value="${mountain.latitude}">
+    	 	<input type="hidden" name="longitude[]" value="${mountain.longitude}">
 		</c:forEach> 
 	 	<input type="submit" value="Save Images"> 
 	 </form:form>

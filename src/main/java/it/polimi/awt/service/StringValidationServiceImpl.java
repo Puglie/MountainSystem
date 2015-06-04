@@ -20,6 +20,7 @@ public class StringValidationServiceImpl implements StringValidationServiceInter
 	        mountain = (Mountain) iterator.next();
 	        if(research.getName().toUpperCase().equals(mountain.getName().toUpperCase())){
 	        	isPresent=true;
+	        	
 	        }
 
 	    }

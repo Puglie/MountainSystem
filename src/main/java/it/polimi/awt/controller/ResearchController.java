@@ -1,6 +1,7 @@
 package it.polimi.awt.controller;
 
 import it.polimi.awt.domain.Mountain;
+import it.polimi.awt.service.FillMountainInterface;
 import it.polimi.awt.service.MountainService;
 import it.polimi.awt.service.ResearchServiceInterface;
 import it.polimi.awt.service.StringValidationServiceInterface;
@@ -25,6 +26,8 @@ public class ResearchController {
 	StringValidationServiceInterface svsi;
 	@Autowired
 	MountainService ms;
+	@Autowired
+	FillMountainInterface fmi;
 	
 	@RequestMapping("/mountainResearch")
 	public String mountainResearch(Model model){
@@ -36,6 +39,7 @@ public class ResearchController {
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
 	public String databaseResult(Mountain research, Model model) throws FlickrException{
 		if(svsi.validMountain(research, ms.findAll())){
+			research=fmi.getMountain(research, ms.findAll());
 			model.addAttribute("mountain", rsi.getSavedMountain(research));
 			return "resultView";
 		}else{

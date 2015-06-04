@@ -1,32 +1,18 @@
 package it.polimi.awt.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name="savedmountain")
 public class SavedMountain {
 	
-	private String id;
-	private int latitude;
-	private int longitude;
+	@Id private String id;
+	private String latitude;
+	private String longitude;
 	private String name;
 	private String url;
-	private String isSelected;
-	
-	public SavedMountain(){
-		isSelected="unchecked";
-	}
-	
-
-	public void setSelected(String isSelected) {
-		this.isSelected = isSelected;
-	}
-
-
-
-	public String getIsSelected() {
-		return isSelected;
-	}
-
-	public void setIsSelected(String isSelected) {
-		this.isSelected = isSelected;
-	}
 
 	public String getId() {
 		return id;
@@ -34,16 +20,16 @@ public class SavedMountain {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(int latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
-	public int getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(int longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 	public String getName() {

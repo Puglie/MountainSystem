@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class SavedMountainController {
 	
 	@RequestMapping(value="/saveImage", method=RequestMethod.POST)
-	public String saveImage(@RequestParam(value="url[]", required= false) String[] url, @RequestParam(value="name[]", required= false) String[] name, Model model){
+	public String saveImage(@RequestParam(value="url[]", required= false) String[] url, @RequestParam(value="name[]", required= false) String[] name,
+			@RequestParam(value="latitude[]", required= false) String[] latitude, @RequestParam(value="longitude[]", required= false) String[] longitude, Model model){
 		
 		for(int i=0; i<url.length; i++){
 			if(url[i]==null){
 				System.out.println("Ciao");
 			}else{
-				System.out.println(name[i]+" "+url[i]);
+				System.out.println(name[i]+" "+url[i]+" "+latitude[i]+" "+longitude[i]);
 			}
 		}
 		return "index";
