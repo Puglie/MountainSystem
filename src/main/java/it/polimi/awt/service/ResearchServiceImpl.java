@@ -1,6 +1,5 @@
 package it.polimi.awt.service;
 
-import it.polimi.awt.domain.ListSavedMountain;
 import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.domain.SavedMountain;
 
@@ -20,7 +19,7 @@ import com.flickr4java.flickr.photos.SearchParameters;
 public class ResearchServiceImpl implements ResearchServiceInterface{
 
 	@Override
-	public ListSavedMountain getSavedMountain(Mountain research) throws FlickrException {
+	public ArrayList<SavedMountain> getSavedMountain(Mountain research) throws FlickrException {
 		String apiKey = "033e35849e5c7266413f18c0e18d0700";
 		String sharedSecret = "21bec8e11859220e";
 		// Create a Flickr instance with your data. No need to authenticate
@@ -34,7 +33,7 @@ public class ResearchServiceImpl implements ResearchServiceInterface{
 
 	    PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 0, 0);
 	    ArrayList<String> url=new ArrayList<String>();
-	    ListSavedMountain mountains=new ListSavedMountain();
+	    ArrayList<SavedMountain> mountains=new ArrayList<SavedMountain>();
 		Photo photo=null;
 	    Iterator<Photo> photoIterator = list.iterator();
 	    while (photoIterator.hasNext()) {
@@ -42,7 +41,7 @@ public class ResearchServiceImpl implements ResearchServiceInterface{
 	        SavedMountain s=new SavedMountain();
 	        s.setUrl(photo.getSmallUrl());
 	        s.setName(research.getName());
-	        mountains.getMountains().add(s);
+	        mountains.add(s);
 	        url.add(photo.getSmallUrl());
 	    //    System.out.println(i + " - Description: " + photo.getSmallUrl());
 

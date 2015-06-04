@@ -1,7 +1,5 @@
 package it.polimi.awt.controller;
 
-import it.polimi.awt.domain.ListSavedMountain;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

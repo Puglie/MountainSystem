@@ -1,12 +1,13 @@
 package it.polimi.awt.service;
 
-import it.polimi.awt.domain.ListSavedMountain;
+import java.util.ArrayList;
 import it.polimi.awt.domain.Mountain;
+import it.polimi.awt.domain.SavedMountain;
 
 import com.flickr4java.flickr.FlickrException;
 
 public interface ResearchServiceInterface {
 	
-	ListSavedMountain getSavedMountain(Mountain research) throws FlickrException;
+	ArrayList<SavedMountain> getSavedMountain(Mountain research) throws FlickrException;
 
 }

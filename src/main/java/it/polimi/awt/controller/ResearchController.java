@@ -1,6 +1,5 @@
 package it.polimi.awt.controller;
 
-import it.polimi.awt.domain.ListSavedMountain;
 import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.service.MountainService;
 import it.polimi.awt.service.ResearchServiceInterface;
@@ -37,16 +36,12 @@ public class ResearchController {
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
 	public String databaseResult(Mountain research, Model model) throws FlickrException{
 		if(svsi.validMountain(research, ms.findAll())){
-			model.addAttribute("mountain", rsi.getSavedMountain(research).getMountains());
+			model.addAttribute("mountain", rsi.getSavedMountain(research));
 			return "resultView";
 		}else{
 			model.addAttribute("command", new Mountain());
 			return "mountainResearch";
 		}
-		
-	    
-		
-		
 		
 	}
 	
@@ -55,11 +50,5 @@ public class ResearchController {
 	public String map(Model model){
 		return "map";
 	}
-	
-	
-	/*@RequestMapping("/addMountain")
-	public String addMountain(Research research){
-		
-	}*/
 
 }
