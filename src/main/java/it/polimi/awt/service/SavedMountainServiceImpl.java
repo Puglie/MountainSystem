@@ -4,6 +4,7 @@ import it.polimi.awt.domain.SavedMountain;
 import it.polimi.awt.repository.SaveMountainRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,11 @@ public class SavedMountainServiceImpl implements SavedMountainService {
 			smr.saveMountain(mountains);
 		//}
 
+	}
+
+	@Override
+	public List<SavedMountain> getMountains() {
+		return smr.findAll();
 	}
 
 }

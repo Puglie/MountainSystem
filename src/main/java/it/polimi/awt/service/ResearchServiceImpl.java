@@ -2,10 +2,13 @@ package it.polimi.awt.service;
 
 import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.domain.SavedMountain;
+import it.polimi.awt.repository.SaveMountainRepository;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.flickr4java.flickr.Flickr;
@@ -17,6 +20,9 @@ import com.flickr4java.flickr.photos.SearchParameters;
 
 @Service
 public class ResearchServiceImpl implements ResearchService {
+	
+	@Autowired
+	private SaveMountainRepository smr;
 
 	@Override
 	public ArrayList<SavedMountain> getSavedMountain(Mountain research)
@@ -36,8 +42,7 @@ public class ResearchServiceImpl implements ResearchService {
 		 * searchParameters.setLongitude("10.52");
 		 */
 
-		PhotoList<Photo> list = flickr.getPhotosInterface().search(
-				searchParameters, 0, 0);
+		PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 230, 2);
 		ArrayList<String> url = new ArrayList<String>();
 		ArrayList<SavedMountain> mountains = new ArrayList<SavedMountain>();
 		Photo photo = null;
@@ -49,12 +54,26 @@ public class ResearchServiceImpl implements ResearchService {
 			s.setLongitude(research.getLongitude_decimal());
 			s.setUrl(photo.getSmallUrl());
 			s.setName(research.getName());
-			mountains.add(s);
-			url.add(photo.getSmallUrl());
+			if(!mountainAlreadySaved(s.getUrl(), smr.findAll())){
+				mountains.add(s);
+				url.add(photo.getSmallUrl());
+			}
+			
 			// System.out.println(i + " - Description: " + photo.getSmallUrl());
 
 		}
 		return mountains;
+	}
+
+	@Override
+	public boolean mountainAlreadySaved(String url, List<SavedMountain> mountains) {
+		boolean isPresent=false;
+		for(SavedMountain mountain : mountains){
+			if(mountain.getUrl().equals(url)){
+				isPresent=true;
+			}
+		}
+		return isPresent;
 	}
 
 }

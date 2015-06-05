@@ -50,9 +50,9 @@ public class ResearchController {
 	}
 	
 	
-	@RequestMapping(value="/map")
+/*	@RequestMapping(value="/map")
 	public String map(Model model){
 		return "map";
-	}
+	}*/
 
 }

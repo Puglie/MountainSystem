@@ -1,0 +1,30 @@
+package it.polimi.awt.controller;
+
+import java.util.List;
+
+import it.polimi.awt.domain.SavedMountain;
+import it.polimi.awt.service.SavedMountainService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MapController {
+	
+	@Autowired
+	private SavedMountainService sms;
+	
+	@RequestMapping(value="/map")
+	public String getMap (Model model){
+		List<SavedMountain> mountains;
+		mountains=sms.getMountains();
+		for(SavedMountain mountain : mountains){
+			System.out.println (mountain.getLatitude()+ " " +mountain.getLongitude());
+		}
+		
+		return "index";
+	}
+
+}
