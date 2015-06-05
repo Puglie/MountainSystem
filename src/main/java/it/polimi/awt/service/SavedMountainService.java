@@ -7,5 +7,6 @@ import java.util.ArrayList;
 public interface SavedMountainService {
 	
 	void saveMountains (ArrayList<SavedMountain>  mountains);
+	//List<SavedMountain> getMountains();
 
 }

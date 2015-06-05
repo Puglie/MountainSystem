@@ -16,23 +16,27 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes
 public class SavedMountainController {
-	
+
 	@Autowired
 	private SavedMountainService sms;
-	
-	@RequestMapping(value="/saveImage", method=RequestMethod.POST)
-	public String saveImage(@RequestParam(value="url[]", required= false) String[] url, @RequestParam(value="name[]", required= false) String[] name,
-			@RequestParam(value="latitude[]", required= false) String[] latitude, @RequestParam(value="longitude[]", required= false) String[] longitude, Model model){
-		
-		ArrayList<SavedMountain> mountains=new ArrayList<SavedMountain>();
-		SavedMountain mountain=new SavedMountain();
-		for(int i=0; i<url.length; i++){
+
+	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
+	public String saveImage(
+			@RequestParam(value = "url[]", required = false) String[] url,
+			@RequestParam(value = "name[]", required = false) String[] name,
+			@RequestParam(value = "latitude[]", required = false) String[] latitude,
+			@RequestParam(value = "longitude[]", required = false) String[] longitude,
+			Model model) {
+		ArrayList<SavedMountain> mountains = new ArrayList<SavedMountain>();
+		for (int i = 0; i < url.length; i++) {
+			SavedMountain mountain = new SavedMountain();
 			mountain.setLatitude(latitude[i]);
 			mountain.setLongitude(longitude[i]);
 			mountain.setName(name[i]);
 			mountain.setUrl(url[i]);
 			mountains.add(mountain);
-			System.out.println(name[i]+" "+url[i]+" "+latitude[i]+" "+longitude[i]);
+			System.out.println(name[i] + " " + url[i] + " " + latitude[i] + " "
+					+ longitude[i]);
 		}
 		sms.saveMountains(mountains);
 		return "index";

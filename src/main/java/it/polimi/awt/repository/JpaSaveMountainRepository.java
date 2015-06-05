@@ -1,7 +1,11 @@
 package it.polimi.awt.repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,8 +18,17 @@ public class JpaSaveMountainRepository implements SaveMountainRepository{
 	private EntityManager em;
 
 	@Override
-	public void saveMountain(SavedMountain mountain) {
-		em.persist(mountain);
+	public void saveMountain(ArrayList<SavedMountain> mountains) {
+        for(SavedMountain mountain : mountains){
+        	em.persist(mountain);
+        	em.close();
+        }
+	}
+
+	@Override
+	public List<SavedMountain> findAll() {
+		TypedQuery<SavedMountain> query= em.createQuery("Select b from SavedMountain b", SavedMountain.class);
+		return query.getResultList();
 	}
 
 }
