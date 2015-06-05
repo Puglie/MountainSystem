@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import it.polimi.awt.domain.SavedMountain;
 
 @Repository
-public class JpaSaveMountain implements SaveMountainRepository{
+public class JpaSaveMountainRepository implements SaveMountainRepository{
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -16,7 +16,6 @@ public class JpaSaveMountain implements SaveMountainRepository{
 	@Override
 	public void saveMountain(SavedMountain mountain) {
 		em.persist(mountain);
-		
 	}
 
 }

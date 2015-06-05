@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class SavedMountainImpl implements SavedMountainService{
+public class SavedMountainServiceImpl implements SavedMountainService{
 	
 	@Autowired
 	private SaveMountainRepository smr;
@@ -21,9 +21,12 @@ public class SavedMountainImpl implements SavedMountainService{
 	public void saveMountains(ArrayList<SavedMountain> mountains) {
 		Iterator<SavedMountain> iterator= mountains.iterator();
 		SavedMountain mountain;
+		int i=0;
 		while(iterator.hasNext()){
+			System.out.println(i);
 			mountain=(SavedMountain)iterator.next();
 			smr.saveMountain(mountain);
+			i++;
 		}
 		
 	}

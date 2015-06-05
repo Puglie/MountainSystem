@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class StringValidationServiceImpl implements StringValidationServiceInterface{
+public class StringValidationServiceImpl implements StringValidationService{
 
 	@Override
 	public Boolean validMountain(Mountain research, List<Mountain> mountains) {

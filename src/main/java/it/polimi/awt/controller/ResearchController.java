@@ -1,10 +1,10 @@
 package it.polimi.awt.controller;
 
 import it.polimi.awt.domain.Mountain;
-import it.polimi.awt.service.FillMountainInterface;
+import it.polimi.awt.service.FillMountainService;
 import it.polimi.awt.service.MountainService;
-import it.polimi.awt.service.ResearchServiceInterface;
-import it.polimi.awt.service.StringValidationServiceInterface;
+import it.polimi.awt.service.ResearchService;
+import it.polimi.awt.service.StringValidationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,13 +21,13 @@ import com.flickr4java.flickr.FlickrException;
 @SessionAttributes
 public class ResearchController {
 	@Autowired
-	ResearchServiceInterface rsi;
+	ResearchService rsi;
 	@Autowired
-	StringValidationServiceInterface svsi;
+	StringValidationService svsi;
 	@Autowired
 	MountainService ms;
 	@Autowired
-	FillMountainInterface fmi;
+	FillMountainService fmi;
 	
 	@RequestMapping("/mountainResearch")
 	public String mountainResearch(Model model){

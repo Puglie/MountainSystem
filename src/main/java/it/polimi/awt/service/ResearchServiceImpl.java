@@ -16,7 +16,7 @@ import com.flickr4java.flickr.photos.PhotoList;
 import com.flickr4java.flickr.photos.SearchParameters;
 
 @Service
-public class ResearchServiceImpl implements ResearchServiceInterface{
+public class ResearchServiceImpl implements ResearchService{
 
 	@Override
 	public ArrayList<SavedMountain> getSavedMountain(Mountain research) throws FlickrException {
