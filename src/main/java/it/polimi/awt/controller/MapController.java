@@ -24,7 +24,7 @@ public class MapController {
 			System.out.println (mountain.getLatitude()+ " " +mountain.getLongitude());
 		}
 		
-		return "index";
+		return "map";
 	}
 
 }
