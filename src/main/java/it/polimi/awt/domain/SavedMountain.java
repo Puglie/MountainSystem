@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,11 +14,22 @@ public class SavedMountain {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
-	private String latitude;
+	/*private String latitude;
 	private String longitude;
-	private String name;
+	private String name;*/
 	private String url;
+	@ManyToOne
+	@JoinColumn(name="idmountain", referencedColumnName = "id")
+	private Mountain mountain;
 	
+
+	public Mountain getMountain() {
+		return mountain;
+	}
+
+	public void setMountain(Mountain mountain) {
+		this.mountain = mountain;
+	}
 
 	public String getId() {
 		return id;
@@ -26,7 +39,7 @@ public class SavedMountain {
 		this.id = id;
 	}
 
-	public String getLatitude() {
+	/*public String getLatitude() {
 		return latitude;
 	}
 
@@ -48,7 +61,7 @@ public class SavedMountain {
 
 	public void setName(String name) {
 		this.name = name;
-	}
+	}*/
 
 	public String getUrl() {
 		return url;

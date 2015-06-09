@@ -21,7 +21,7 @@ public class MapController {
 		List<SavedMountain> mountains;
 		mountains=sms.getMountains();
 		for(SavedMountain mountain : mountains){
-			System.out.println (mountain.getLatitude()+ " " +mountain.getLongitude());
+			System.out.println (mountain.getMountain().getLatitude()+ " " +mountain.getMountain().getLongitude());
 		}
 		
 		return "map";

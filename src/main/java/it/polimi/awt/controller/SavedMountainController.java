@@ -1,6 +1,7 @@
 package it.polimi.awt.controller;
 
 import it.polimi.awt.domain.SavedMountain;
+import it.polimi.awt.repository.JpaMountainRepository;
 import it.polimi.awt.service.SavedMountainService;
 
 import java.util.ArrayList;
@@ -19,24 +20,22 @@ public class SavedMountainController {
 
 	@Autowired
 	private SavedMountainService sms;
+	@Autowired
+	private JpaMountainRepository mountaindao;
 
 	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
 	public String saveImage(
 			@RequestParam(value = "url[]", required = false) String[] url,
-			@RequestParam(value = "name[]", required = false) String[] name,
-			@RequestParam(value = "latitude[]", required = false) String[] latitude,
-			@RequestParam(value = "longitude[]", required = false) String[] longitude,
+			@RequestParam(value = "name", required = false) String name2,
 			Model model) {
 		ArrayList<SavedMountain> mountains = new ArrayList<SavedMountain>();
 		for (int i = 0; i < url.length; i++) {
 			SavedMountain mountain = new SavedMountain();
-			mountain.setLatitude(latitude[i]);
-			mountain.setLongitude(longitude[i]);
-			mountain.setName(name[i]);
+			mountain.setMountain(mountaindao.findMountain(name2));
 			mountain.setUrl(url[i]);
 			mountains.add(mountain);
-			System.out.println(name[i] + " " + url[i] + " " + latitude[i] + " "
-					+ longitude[i]);
+			System.out.println(mountain.getMountain().getName() + " " + url[i] + " " + mountain.getMountain().getLatitude() + " "
+					+ mountain.getMountain().getLongitude());
 		}
 		sms.saveMountains(mountains);
 		return "index";

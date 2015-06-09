@@ -50,10 +50,10 @@ public class ResearchServiceImpl implements ResearchService {
 		while (photoIterator.hasNext()) {
 			photo = (Photo) photoIterator.next();
 			SavedMountain s = new SavedMountain();
-			s.setLatitude(research.getLatitude_decimal());
-			s.setLongitude(research.getLongitude_decimal());
+			/*s.getMountain().setLatitude(research.getLatitude_decimal());
+			s.getMountain().setLongitude(research.getLongitude_decimal());*/
 			s.setUrl(photo.getSmallUrl());
-			s.setName(research.getName());
+			//s.getMountain().setName(research.getName());
 			if(!mountainAlreadySaved(s.getUrl(), smr.findAll())){
 				mountains.add(s);
 				url.add(photo.getSmallUrl());

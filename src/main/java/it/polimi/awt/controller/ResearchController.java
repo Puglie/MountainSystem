@@ -41,6 +41,7 @@ public class ResearchController {
 		if(svsi.validMountain(research, ms.findAll())){
 			research=fmi.getMountain(research, ms.findAll());
 			model.addAttribute("mountain", rsi.getSavedMountain(research));
+			model.addAttribute("research", research);
 			return "resultView";
 		}else{
 			model.addAttribute("command", new Mountain());

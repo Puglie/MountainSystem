@@ -11,17 +11,25 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class JpaMountainRepository implements MountainRepository{
-	
+public class JpaMountainRepository implements MountainRepository {
+
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
 	public List<Mountain> findAll() {
-		
-		TypedQuery<Mountain> query=em.createQuery("Select b from Mountain b", Mountain.class);
-		
+
+		TypedQuery<Mountain> query = em.createQuery("Select b from Mountain b",
+				Mountain.class);
+
 		return query.getResultList();
+	}
+
+	public Mountain findMountain(String name) {
+		TypedQuery<Mountain> query = em
+				.createQuery("Select b from Mountain b where b.name='" + name + "'",
+						Mountain.class);
+		return query.getSingleResult();
 	}
 
 }
