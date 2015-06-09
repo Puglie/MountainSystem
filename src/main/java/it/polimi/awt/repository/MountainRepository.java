@@ -7,5 +7,6 @@ import java.util.List;
 public interface MountainRepository {
 	
 	List<Mountain> findAll();
+	Mountain findMountain(String name);
 
 }

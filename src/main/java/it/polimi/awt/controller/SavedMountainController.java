@@ -1,7 +1,6 @@
 package it.polimi.awt.controller;
 
 import it.polimi.awt.domain.SavedMountain;
-import it.polimi.awt.repository.JpaMountainRepository;
 import it.polimi.awt.service.SavedMountainService;
 
 import java.util.ArrayList;
@@ -20,18 +19,16 @@ public class SavedMountainController {
 
 	@Autowired
 	private SavedMountainService sms;
-	@Autowired
-	private JpaMountainRepository mountaindao;
 
 	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
 	public String saveImage(
 			@RequestParam(value = "url[]", required = false) String[] url,
-			@RequestParam(value = "name", required = false) String name2,
+			@RequestParam(value = "name", required = false) String name,
 			Model model) {
 		ArrayList<SavedMountain> mountains = new ArrayList<SavedMountain>();
 		for (int i = 0; i < url.length; i++) {
 			SavedMountain mountain = new SavedMountain();
-			mountain.setMountain(mountaindao.findMountain(name2));
+			mountain.setMountain(sms.getMountain(name));
 			mountain.setUrl(url[i]);
 			mountains.add(mountain);
 			System.out.println(mountain.getMountain().getName() + " " + url[i] + " " + mountain.getMountain().getLatitude() + " "

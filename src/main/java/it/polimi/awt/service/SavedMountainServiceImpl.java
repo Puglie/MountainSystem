@@ -1,6 +1,8 @@
 package it.polimi.awt.service;
 
+import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.domain.SavedMountain;
+import it.polimi.awt.repository.MountainRepository;
 import it.polimi.awt.repository.SaveMountainRepository;
 
 import java.util.ArrayList;
@@ -16,6 +18,8 @@ public class SavedMountainServiceImpl implements SavedMountainService {
 
 	@Autowired
 	private SaveMountainRepository smr;
+	@Autowired
+	private MountainRepository mr;
 
 	@Override
 	public void saveMountains(ArrayList<SavedMountain> mountains) {
@@ -28,6 +32,10 @@ public class SavedMountainServiceImpl implements SavedMountainService {
 	@Override
 	public List<SavedMountain> getMountains() {
 		return smr.findAll();
+	}
+	
+	public Mountain getMountain(String name){
+		return mr.findMountain(name);
 	}
 
 }
