@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -36,25 +38,37 @@ html, body, #map-canvas {
 		};
 		var map = new google.maps.Map(document.getElementById('map-canvas'),
 				mapOptions);
-		
+
+		var i = 0;
+		<c:forEach var="m" items="${mountains}">
+		i = i + 1;
+
+		var icon = {
+			    url: "${m.url}", // url
+			    scaledSize: new google.maps.Size(50, 50), // scaled size
+			    origin: new google.maps.Point(0,0), // origin
+			    anchor: new google.maps.Point(0, 0) // anchor
+			};
 		var marker = new google.maps.Marker({
-		      position: {
-					lat : 46.2323,
-					lng : 9.0707
-				},
-		      map: map,
-   		 title: 'FirstMarker',
-   		 icon: 'http://maps.google.com/mapfiles/kml/pal3/icon55.png'
-   		
-			});
-		
+			position : {
+				lat : Number("${m.mountain.latitude_decimal}")+Math.random(),
+				lng : Number("${m.mountain.longitude_decimal}")+Math.random()
+			},
+			map : map,
+			title : "${m.id}",
+			icon : icon
+
+		});
+
 		google.maps.event.addListener(marker, 'click', function() {
-		    infowindow.open(map,marker);
-		  });
+			infowindow.open(map, marker);
+		});
+		</c:forEach>
 	}
+
 	google.maps.event.addDomListener(window, 'load', initialize);
-	
-	function savePhoto(){
+
+	function savePhoto() {
 		//location.href='index.jsp';
 	}
 </script>

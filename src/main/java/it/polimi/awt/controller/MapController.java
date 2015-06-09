@@ -23,6 +23,7 @@ public class MapController {
 		for(SavedMountain mountain : mountains){
 			System.out.println (mountain.getMountain().getLatitude()+ " " +mountain.getMountain().getLongitude());
 		}
+		model.addAttribute("mountains", mountains);
 		
 		return "map";
 	}
