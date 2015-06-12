@@ -52,7 +52,8 @@ public class ResearchServiceImpl implements ResearchService {
 			SavedMountain s = new SavedMountain();
 			/*s.getMountain().setLatitude(research.getLatitude_decimal());
 			s.getMountain().setLongitude(research.getLongitude_decimal());*/
-			s.setUrl(photo.getLargeUrl());
+			s.setUrl(photo.getMediumUrl());
+			s.setSmallurl(photo.getSmallUrl());
 			//s.getMountain().setName(research.getName());
 			if(!mountainAlreadySaved(s.getUrl(), smr.findAll())){
 				mountains.add(s);

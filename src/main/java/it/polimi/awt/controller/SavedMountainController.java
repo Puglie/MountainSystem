@@ -23,6 +23,7 @@ public class SavedMountainController {
 	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
 	public String saveImage(
 			@RequestParam(value = "url[]", required = false) String[] url,
+			@RequestParam(value = "smallurl[]", required = false) String[] smallurl,
 			@RequestParam(value = "name", required = false) String name,
 			Model model) {
 		ArrayList<SavedMountain> mountains = new ArrayList<SavedMountain>();
@@ -30,6 +31,7 @@ public class SavedMountainController {
 			SavedMountain mountain = new SavedMountain();
 			mountain.setMountain(sms.getMountain(name));
 			mountain.setUrl(url[i]);
+			mountain.setSmallurl(smallurl[i]);
 			mountains.add(mountain);
 			System.out.println(mountain.getMountain().getName() + " " + url[i] + " " + mountain.getMountain().getLatitude() + " "
 					+ mountain.getMountain().getLongitude());

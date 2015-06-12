@@ -18,10 +18,21 @@ public class SavedMountain {
 	private String longitude;
 	private String name;*/
 	private String url;
+	private String smallurl;
 	@ManyToOne
 	@JoinColumn(name="idmountain", referencedColumnName = "id")
 	private Mountain mountain;
 	
+	
+	
+
+	public String getSmallurl() {
+		return smallurl;
+	}
+
+	public void setSmallurl(String smallurl) {
+		this.smallurl = smallurl;
+	}
 
 	public Mountain getMountain() {
 		return mountain;
