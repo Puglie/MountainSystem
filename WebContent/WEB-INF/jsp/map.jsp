@@ -78,17 +78,18 @@ html, body, #map-canvas {
 				 			<c:forEach var="m1" items="${m}">
 				 				{
 				 				src : '${m1.getUrl()}',
-				 				w : getWidth("${m1.getUrl()}"),
-				 				h : getHeight("${m1.getUrl()}"),
+				 				w : 600,
+				 				h : 400,
 				 				title: '${m1.getMountain().getName()}'
 				 				},
 				 			</c:forEach>	
 				 			];
+			
 			// define options (if needed)
 			var options = {
 				// optionName: 'option value'
 				// for example:
-				index : 0,
+				index : 0
 				
 			// start at first slide
 			};
@@ -96,7 +97,9 @@ html, body, #map-canvas {
 			// Initializes and opens PhotoSwipe
 			var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default,
 					items, options);
+			
 			gallery.init();
+			
 			
 		});
 		</c:forEach>
