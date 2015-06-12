@@ -52,11 +52,11 @@ public class ResearchServiceImpl implements ResearchService {
 			SavedMountain s = new SavedMountain();
 			/*s.getMountain().setLatitude(research.getLatitude_decimal());
 			s.getMountain().setLongitude(research.getLongitude_decimal());*/
-			s.setUrl(photo.getSmallUrl());
+			s.setUrl(photo.getLargeUrl());
 			//s.getMountain().setName(research.getName());
 			if(!mountainAlreadySaved(s.getUrl(), smr.findAll())){
 				mountains.add(s);
-				url.add(photo.getSmallUrl());
+				url.add(photo.getLargeUrl());
 			}
 			
 			// System.out.println(i + " - Description: " + photo.getSmallUrl());
@@ -82,7 +82,8 @@ public class ResearchServiceImpl implements ResearchService {
 		Iterator<Mountain> iterator = mountains.iterator();
 	    while (iterator.hasNext()) {
 	        mountain = (Mountain) iterator.next();
-	        if(research.getName().toUpperCase().equals(mountain.getName().toUpperCase())){
+	       // if(research.getName().toUpperCase()..equals(mountain.getName().toUpperCase())){
+	        if(mountain.getName().toUpperCase().contains(research.getName().toUpperCase())){
 	        	isPresent=true;
 	        	
 	        }

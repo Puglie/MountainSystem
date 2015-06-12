@@ -80,8 +80,8 @@ html, body, #map-canvas {
 			<c:forEach var="m1" items="${m}">
 				{
 				src : '${m1.getUrl()}',
-				w : 600,
-				h : 400,
+				w : getWidth("${m1.getUrl()}"),
+				h : getHeight("${m1.getUrl()}"),
 				title: '${m1.getMountain().getName()}'
 				},
 			</c:forEach>	
@@ -103,6 +103,17 @@ html, body, #map-canvas {
 			gallery.init();
 		});
 		</c:forEach>
+	}
+	
+	function getWidth(url){
+		var img = new Image();
+		img.src = url;
+		return img.width;
+	}
+	function getHeight(url){
+		var img = new Image();
+		img.src = url;
+		return img.height;
 	}
 
 	google.maps.event.addDomListener(window, 'load', initialize);
