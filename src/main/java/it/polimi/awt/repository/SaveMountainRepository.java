@@ -9,5 +9,6 @@ public interface SaveMountainRepository {
 	
 	void saveMountain(ArrayList<SavedMountain> mountain);
 	List<SavedMountain> findAll();
+	List<List<SavedMountain>> findByName();
 
 }

@@ -35,7 +35,7 @@ public class SavedMountainController {
 					+ mountain.getMountain().getLongitude());
 		}
 		sms.saveMountains(mountains);
-		return "index";
+		return "redirect:/map";
 	}
 
 }

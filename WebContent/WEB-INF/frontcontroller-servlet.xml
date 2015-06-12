@@ -7,6 +7,7 @@
 	<context:component-scan base-package="it.polimi.awt.controller" />
 	<mvc:annotation-driven />
 	<mvc:view-controller view-name="index" path="/" />
+	<mvc:resources mapping="/jsp/**" location="/WEB-INF/jsp/" />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
