@@ -55,7 +55,7 @@ html, body, #map-canvas {
 				lng : Number("${m.mountain.longitude_decimal}")+Math.random()
 			},
 			map : map,
-			title : "${m.id}",
+			title : "${m.mountain.name}",
 			icon : icon
 
 		});
