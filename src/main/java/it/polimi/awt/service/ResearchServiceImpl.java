@@ -75,5 +75,19 @@ public class ResearchServiceImpl implements ResearchService {
 		}
 		return isPresent;
 	}
+	
+	public Boolean validMountain(Mountain research, List<Mountain> mountains) {
+		Mountain mountain;
+		boolean isPresent=false;
+		Iterator<Mountain> iterator = mountains.iterator();
+	    while (iterator.hasNext()) {
+	        mountain = (Mountain) iterator.next();
+	        if(research.getName().toUpperCase().equals(mountain.getName().toUpperCase())){
+	        	isPresent=true;
+	        	
+	        }
+	    }
+		return isPresent;
+	}
 
 }

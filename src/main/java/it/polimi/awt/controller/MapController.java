@@ -1,7 +1,6 @@
 package it.polimi.awt.controller;
 
 import it.polimi.awt.domain.SavedMountain;
-import it.polimi.awt.repository.SaveMountainRepository;
 import it.polimi.awt.service.SavedMountainService;
 
 import java.util.List;
@@ -16,15 +15,13 @@ public class MapController {
 
 	@Autowired
 	private SavedMountainService sms;
-	@Autowired
-	private SaveMountainRepository smr;
 
 	@RequestMapping(value = "/map")
 	public String getMap(Model model) {
 		List<SavedMountain> mountains;
 		mountains = sms.getMountains();
 		List<List<SavedMountain>> mountainMatrix;
-		mountainMatrix = smr.findByName();
+		mountainMatrix = sms.findAllMountainAndSavedMountain();
 		for (SavedMountain mountain : mountains) {
 			System.out.println(mountain.getMountain().getLatitude() + " "
 					+ mountain.getMountain().getLongitude());

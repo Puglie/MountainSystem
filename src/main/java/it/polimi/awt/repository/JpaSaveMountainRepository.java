@@ -9,7 +9,6 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.domain.SavedMountain;
 
 @Repository
@@ -34,7 +33,7 @@ public class JpaSaveMountainRepository implements SaveMountainRepository {
 	}
 
 	@Override
-	public List<List<SavedMountain>> findByName() {
+	public List<List<SavedMountain>> findAllMountainAndSavedMountain() {
 		List<List<SavedMountain>> mountains = new ArrayList<List<SavedMountain>>();
 		TypedQuery<String> query = em.createQuery(
 				"Select distinct b.mountain.name from SavedMountain b",

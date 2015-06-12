@@ -4,7 +4,7 @@ import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.service.FillMountainService;
 import it.polimi.awt.service.MountainService;
 import it.polimi.awt.service.ResearchService;
-import it.polimi.awt.service.StringValidationService;
+import it.polimi.awt.service.ResearchServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,13 +21,13 @@ import com.flickr4java.flickr.FlickrException;
 @SessionAttributes
 public class ResearchController {
 	@Autowired
-	ResearchService rsi;
-	@Autowired
-	StringValidationService svsi;
+	ResearchService rs;
 	@Autowired
 	MountainService ms;
 	@Autowired
 	FillMountainService fmi;
+	@Autowired
+	ResearchServiceImpl rsi;
 	
 	@RequestMapping("/mountainResearch")
 	public String mountainResearch(Model model){
@@ -38,9 +38,9 @@ public class ResearchController {
 	
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
 	public String databaseResult(Mountain research, Model model) throws FlickrException{
-		if(svsi.validMountain(research, ms.findAll())){
+		if(rsi.validMountain(research, ms.findAll())){
 			research=fmi.getMountain(research, ms.findAll());
-			model.addAttribute("mountain", rsi.getSavedMountain(research));
+			model.addAttribute("mountain", rs.getSavedMountain(research));
 			model.addAttribute("research", research);
 			return "resultView";
 		}else{

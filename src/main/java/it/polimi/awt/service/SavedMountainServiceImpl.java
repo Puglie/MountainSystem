@@ -38,4 +38,10 @@ public class SavedMountainServiceImpl implements SavedMountainService {
 		return mr.findMountain(name);
 	}
 
+	@Override
+	public List<List<SavedMountain>> findAllMountainAndSavedMountain() {
+		
+		return smr.findAllMountainAndSavedMountain();
+	}
+
 }

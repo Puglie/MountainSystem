@@ -11,5 +11,6 @@ public interface SavedMountainService {
 	void saveMountains (ArrayList<SavedMountain>  mountains);
 	List<SavedMountain> getMountains();
 	Mountain getMountain(String name);
+	List<List<SavedMountain>> findAllMountainAndSavedMountain();
 
 }
