@@ -15,9 +15,12 @@
 	<tr>
 		<td colspan="2">
 			<input type="submit" value="Research"/>
-		</td>
+		</td>		
 	</tr>
 	</table>
 </form:form>
+<form:form method="post" action="index.html">
+				<input type="submit" value="Back Home"/>
+			</form:form>
 </body>
 </html>
