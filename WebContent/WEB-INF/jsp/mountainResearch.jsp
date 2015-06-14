@@ -13,10 +13,6 @@
 		<td><form:input path="name"/></td>
 	</tr>
 	<tr>
-		<td><form:label path="location">City</form:label></td>
-		<td><form:input path="location"/></td>
-	</tr>
-	<tr>
 		<td colspan="2">
 			<input type="submit" value="Research"/>
 		</td>

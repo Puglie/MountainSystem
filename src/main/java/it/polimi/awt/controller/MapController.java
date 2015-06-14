@@ -32,5 +32,10 @@ public class MapController {
 
 		return "map";
 	}
+	
+	@RequestMapping("/index")
+	public String getIndex(){
+		return "index";
+	}
 
 }
