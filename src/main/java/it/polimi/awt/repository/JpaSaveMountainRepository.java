@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import it.polimi.awt.domain.SavedMountain;
+import it.polimi.awt.domain.SavedPhoto;
 
 @Repository
 public class JpaSaveMountainRepository implements SaveMountainRepository {
@@ -18,33 +18,33 @@ public class JpaSaveMountainRepository implements SaveMountainRepository {
 	private EntityManager em;
 
 	@Override
-	public void saveMountain(ArrayList<SavedMountain> mountains) {
-		for (SavedMountain mountain : mountains) {
+	public void saveMountain(ArrayList<SavedPhoto> mountains) {
+		for (SavedPhoto mountain : mountains) {
 			em.persist(mountain);
 			em.close();
 		}
 	}
 
 	@Override
-	public List<SavedMountain> findAll() {
-		TypedQuery<SavedMountain> query = em.createQuery(
-				"Select b from SavedMountain b", SavedMountain.class);
+	public List<SavedPhoto> findAll() {
+		TypedQuery<SavedPhoto> query = em.createQuery(
+				"Select b from SavedPhoto b", SavedPhoto.class);
 		return query.getResultList();
 	}
 
 	@Override
-	public List<List<SavedMountain>> findAllMountainAndSavedMountain() {
-		List<List<SavedMountain>> mountains = new ArrayList<List<SavedMountain>>();
+	public List<List<SavedPhoto>> findAllMountainAndSavedMountain() {
+		List<List<SavedPhoto>> mountains = new ArrayList<List<SavedPhoto>>();
 		TypedQuery<String> query = em.createQuery(
-				"Select distinct b.mountain.name from SavedMountain b",
+				"Select distinct b.mountain.name from SavedPhoto b",
 				String.class);
 		int i=0;
 		for (String mountain : query.getResultList()) {
-			mountains.add(new ArrayList<SavedMountain>());
-			TypedQuery<SavedMountain> queryByName = em.createQuery(
-					"Select b from SavedMountain b where b.mountain.name='"
-							+ mountain + "'", SavedMountain.class);
-			for (SavedMountain savedMountain : queryByName.getResultList()) {
+			mountains.add(new ArrayList<SavedPhoto>());
+			TypedQuery<SavedPhoto> queryByName = em.createQuery(
+					"Select b from SavedPhoto b where b.mountain.name='"
+							+ mountain + "'", SavedPhoto.class);
+			for (SavedPhoto savedMountain : queryByName.getResultList()) {
 				mountains.get(i).add(savedMountain);
 			}
 			i++;

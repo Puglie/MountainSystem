@@ -1,6 +1,6 @@
 package it.polimi.awt.controller;
 
-import it.polimi.awt.domain.SavedMountain;
+import it.polimi.awt.domain.SavedPhoto;
 import it.polimi.awt.service.SavedMountainService;
 
 import java.util.List;
@@ -18,11 +18,11 @@ public class MapController {
 
 	@RequestMapping(value = "/map")
 	public String getMap(Model model) {
-		List<SavedMountain> mountains;
+		List<SavedPhoto> mountains;
 		mountains = sms.getMountains();
-		List<List<SavedMountain>> mountainMatrix;
+		List<List<SavedPhoto>> mountainMatrix;
 		mountainMatrix = sms.findAllMountainAndSavedMountain();
-		for (SavedMountain mountain : mountains) {
+		for (SavedPhoto mountain : mountains) {
 			System.out.println(mountain.getMountain().getLatitude() + " "
 					+ mountain.getMountain().getLongitude());
 		}

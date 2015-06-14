@@ -9,14 +9,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "savedmountain")
-public class SavedMountain {
+@Table(name = "savedphoto")
+public class SavedPhoto {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
-	/*private float latitude;
-	private float longitude;
-	private String name;*/
 	private String url;
 	private String smallurl;
 	@ManyToOne
@@ -47,30 +44,6 @@ public class SavedMountain {
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	/*public String getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
-
-	public String getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}*/
 
 	public String getUrl() {
 		return url;

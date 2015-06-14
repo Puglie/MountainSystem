@@ -1,6 +1,6 @@
 package it.polimi.awt.controller;
 
-import it.polimi.awt.domain.SavedMountain;
+import it.polimi.awt.domain.SavedPhoto;
 import it.polimi.awt.service.SavedMountainService;
 
 import java.util.ArrayList;
@@ -26,9 +26,9 @@ public class SavedMountainController {
 			@RequestParam(value = "smallurl[]", required = false) String[] smallurl,
 			@RequestParam(value = "name", required = false) String name,
 			Model model) {
-		ArrayList<SavedMountain> mountains = new ArrayList<SavedMountain>();
+		ArrayList<SavedPhoto> mountains = new ArrayList<SavedPhoto>();
 		for (int i = 0; i < url.length; i++) {
-			SavedMountain mountain = new SavedMountain();
+			SavedPhoto mountain = new SavedPhoto();
 			mountain.setMountain(sms.getMountain(name));
 			mountain.setUrl(url[i]);
 			mountain.setSmallurl(smallurl[i]);

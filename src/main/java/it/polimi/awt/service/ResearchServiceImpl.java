@@ -1,7 +1,7 @@
 package it.polimi.awt.service;
 
 import it.polimi.awt.domain.Mountain;
-import it.polimi.awt.domain.SavedMountain;
+import it.polimi.awt.domain.SavedPhoto;
 import it.polimi.awt.repository.MountainRepository;
 import it.polimi.awt.repository.SaveMountainRepository;
 
@@ -28,7 +28,7 @@ public class ResearchServiceImpl implements ResearchService {
 	private MountainRepository mr;
 
 	@Override
-	public ArrayList<SavedMountain> getSavedMountain(Mountain research)
+	public ArrayList<SavedPhoto> getSavedMountain(Mountain research)
 			throws FlickrException {
 		String apiKey = "033e35849e5c7266413f18c0e18d0700";
 		String sharedSecret = "21bec8e11859220e";
@@ -47,12 +47,12 @@ public class ResearchServiceImpl implements ResearchService {
 
 		PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 300, 1);
 		ArrayList<String> url = new ArrayList<String>();
-		ArrayList<SavedMountain> mountains = new ArrayList<SavedMountain>();
+		ArrayList<SavedPhoto> mountains = new ArrayList<SavedPhoto>();
 		Photo photo = null;
 		Iterator<Photo> photoIterator = list.iterator();
 		while (photoIterator.hasNext()) {
 			photo = (Photo) photoIterator.next();
-			SavedMountain s = new SavedMountain();
+			SavedPhoto s = new SavedPhoto();
 			/*s.getMountain().setLatitude(research.getLatitude_decimal());
 			s.getMountain().setLongitude(research.getLongitude_decimal());*/
 			s.setUrl(photo.getMediumUrl());
@@ -71,9 +71,9 @@ public class ResearchServiceImpl implements ResearchService {
 	}
 
 	@Override
-	public boolean mountainAlreadySaved(String url, List<SavedMountain> mountains) {
+	public boolean mountainAlreadySaved(String url, List<SavedPhoto> mountains) {
 		boolean isPresent=false;
-		for(SavedMountain mountain : mountains){
+		for(SavedPhoto mountain : mountains){
 			if(mountain.getUrl().equals(url)){
 				isPresent=true;
 			}
