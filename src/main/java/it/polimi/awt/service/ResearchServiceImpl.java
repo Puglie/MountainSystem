@@ -4,7 +4,6 @@ import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.domain.SavedPhoto;
 import it.polimi.awt.repository.MountainRepository;
 import it.polimi.awt.repository.SaveMountainRepository;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
