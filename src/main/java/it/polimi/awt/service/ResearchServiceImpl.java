@@ -45,7 +45,7 @@ public class ResearchServiceImpl implements ResearchService {
 		 * searchParameters.setLongitude("10.52");
 		 */
 
-		PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 230, 2);
+		PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 300, 1);
 		ArrayList<String> url = new ArrayList<String>();
 		ArrayList<SavedMountain> mountains = new ArrayList<SavedMountain>();
 		Photo photo = null;
@@ -62,6 +62,7 @@ public class ResearchServiceImpl implements ResearchService {
 				mountains.add(s);
 				url.add(photo.getLargeUrl());
 			}
+			
 			
 			// System.out.println(i + " - Description: " + photo.getSmallUrl());
 

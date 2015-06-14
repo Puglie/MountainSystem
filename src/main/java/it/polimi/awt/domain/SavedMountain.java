@@ -14,8 +14,8 @@ public class SavedMountain {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
-	/*private String latitude;
-	private String longitude;
+	/*private float latitude;
+	private float longitude;
 	private String name;*/
 	private String url;
 	private String smallurl;
@@ -24,8 +24,6 @@ public class SavedMountain {
 	private Mountain mountain;
 	
 	
-	
-
 	public String getSmallurl() {
 		return smallurl;
 	}
