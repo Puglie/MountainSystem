@@ -12,5 +12,6 @@ public interface ResearchService {
 	
 	ArrayList<SavedMountain> getSavedMountain(Mountain research) throws FlickrException;
 	boolean mountainAlreadySaved (String url, List<SavedMountain>mountains);
+	List<Mountain> findListMountain(Mountain m);
 
 }

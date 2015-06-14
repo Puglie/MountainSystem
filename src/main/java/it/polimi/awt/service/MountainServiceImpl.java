@@ -21,4 +21,9 @@ public class MountainServiceImpl implements MountainService{
 		return mountainRepository.findAll();
 	}
 
+	@Override
+	public Mountain findByName(String name) {
+		return mountainRepository.findByName(name);
+	}
+
 }

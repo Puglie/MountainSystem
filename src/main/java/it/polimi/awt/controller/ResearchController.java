@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.flickr4java.flickr.FlickrException;
@@ -37,16 +38,30 @@ public class ResearchController {
 	}
 	
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
-	public String databaseResult(Mountain research, Model model) throws FlickrException{
-		if(rsi.validMountain(research, ms.findAll())){
-			research=fmi.getMountain(research, ms.findAll());
+	public String databaseResult(Mountain research, Model model, @RequestParam(value="research", required=false) String mont) throws FlickrException{
+		if(mont==null){
+			if(rsi.validMountain(research, ms.findAll())){
+				research=fmi.getMountain(research, ms.findAll());
+				model.addAttribute("mountain", rs.getSavedMountain(research));
+				model.addAttribute("research", research);
+				return "resultView";
+			}else if(rsi.containedMountain(research, ms.findAll())){
+				model.addAttribute("correctmountain", rsi.findListMountain(research));
+				return "showList";
+			}
+			
+			else{
+				model.addAttribute("command", new Mountain());
+				return "mountainResearch";
+			}
+		}else{
+			research=fmi.getMountain(ms.findByName(mont), ms.findAll());
 			model.addAttribute("mountain", rs.getSavedMountain(research));
 			model.addAttribute("research", research);
+			System.out.println(mont);
 			return "resultView";
-		}else{
-			model.addAttribute("command", new Mountain());
-			return "mountainResearch";
 		}
+		
 		
 	}
 	

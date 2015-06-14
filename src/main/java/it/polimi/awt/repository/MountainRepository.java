@@ -8,5 +8,7 @@ public interface MountainRepository {
 	
 	List<Mountain> findAll();
 	Mountain findMountain(String name);
+	List<Mountain> findContainedMountain(Mountain m);
+	Mountain findByName(String name);
 
 }

@@ -2,6 +2,7 @@ package it.polimi.awt.service;
 
 import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.domain.SavedMountain;
+import it.polimi.awt.repository.MountainRepository;
 import it.polimi.awt.repository.SaveMountainRepository;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class ResearchServiceImpl implements ResearchService {
 	
 	@Autowired
 	private SaveMountainRepository smr;
+	@Autowired
+	private MountainRepository mr;
 
 	@Override
 	public ArrayList<SavedMountain> getSavedMountain(Mountain research)
@@ -83,6 +86,21 @@ public class ResearchServiceImpl implements ResearchService {
 		Iterator<Mountain> iterator = mountains.iterator();
 	    while (iterator.hasNext()) {
 	        mountain = (Mountain) iterator.next();
+	        if(research.getName().toUpperCase().equals(mountain.getName().toUpperCase())){
+	       // if(mountain.getName().toUpperCase().contains(research.getName().toUpperCase())){
+	        	isPresent=true;
+	        	
+	        }
+	    }
+		return isPresent;
+	}
+	
+	public Boolean containedMountain(Mountain research, List<Mountain> mountains) {
+		Mountain mountain;
+		boolean isPresent=false;
+		Iterator<Mountain> iterator = mountains.iterator();
+	    while (iterator.hasNext()) {
+	        mountain = (Mountain) iterator.next();
 	       // if(research.getName().toUpperCase()..equals(mountain.getName().toUpperCase())){
 	        if(mountain.getName().toUpperCase().contains(research.getName().toUpperCase())){
 	        	isPresent=true;
@@ -90,6 +108,11 @@ public class ResearchServiceImpl implements ResearchService {
 	        }
 	    }
 		return isPresent;
+	}
+
+	@Override
+	public List<Mountain> findListMountain(Mountain m) {
+		return mr.findContainedMountain(m);
 	}
 
 }
