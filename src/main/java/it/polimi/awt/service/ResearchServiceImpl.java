@@ -38,11 +38,6 @@ public class ResearchServiceImpl implements ResearchService {
 		// example)
 		SearchParameters searchParameters = new SearchParameters();
 		searchParameters.setText(research.getName());
-		;
-		/*
-		 * searchParameters.setLatitude("46.53");
-		 * searchParameters.setLongitude("10.52");
-		 */
 
 		PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 300, 1);
 		ArrayList<String> url = new ArrayList<String>();
@@ -52,18 +47,12 @@ public class ResearchServiceImpl implements ResearchService {
 		while (photoIterator.hasNext()) {
 			photo = (Photo) photoIterator.next();
 			SavedPhoto s = new SavedPhoto();
-			/*s.getMountain().setLatitude(research.getLatitude_decimal());
-			s.getMountain().setLongitude(research.getLongitude_decimal());*/
 			s.setUrl(photo.getMediumUrl());
 			s.setSmallurl(photo.getSmallUrl());
-			//s.getMountain().setName(research.getName());
 			if(!mountainAlreadySaved(s.getUrl(), smr.findAll())){
 				mountains.add(s);
 				url.add(photo.getLargeUrl());
 			}
-			
-			
-			// System.out.println(i + " - Description: " + photo.getSmallUrl());
 
 		}
 		return mountains;
