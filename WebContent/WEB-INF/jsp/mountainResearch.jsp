@@ -1,26 +1,42 @@
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-	<title>Mountain Research</title>
+<title>Mountain Research</title>
+<link rel="stylesheet" href="<c:url value="/jsp/css/default.css"/>" />
 </head>
-<body>
-<h2>MOUNTAIN RESEARCH</h2>
-<form:form method="post" action="resultView.html"  >
+<body background="<c:url value="/jsp/res/montagna3.jpg"/>">
+	<div class="generalResearch">
+		<h1 class="formResearch">MOUNTAIN RESEARCH</h1>
+		<br>
+		<br>
+		<br>
+		<div class="research">
+			<form:form class="formResearch" method="post"
+				action="resultView.html">
 
-	<table>
-	<tr>
-		<td><form:label path="name">Mountain Name</form:label></td>
-		<td><form:input path="name"/></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<input type="submit" value="Research"/>
-		</td>		
-	</tr>
-	</table>
-</form:form>
-<form:form method="post" action="index.html">
-				<input type="submit" value="Back Home"/>
+				<table class="formResearch">
+					<tr>
+						<td><form:label class="formResearch" path="name">MOUNTAIN NAME</form:label></td>
+						<td><form:input class="formResearch" path="name" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><br>
+						<br>
+						<br>
+						<input class="buttonResearch" type="submit" value="Research" /></td>
+					</tr>
+				</table>
 			</form:form>
+		</div>
+		<div class="backFromResearch">
+			<form:form method="post" action="index.html">
+				<input class="buttonResearch" type="submit" value="Back Home" />
+			</form:form>
+		</div>
+
+	</div>
 </body>
+
+
 </html>

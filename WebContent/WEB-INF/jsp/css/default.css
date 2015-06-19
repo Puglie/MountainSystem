@@ -1,0 +1,51 @@
+h1.index {
+	text-align: center;
+	color: #FF0000;
+	font-size: 250%;
+}
+
+h1.formResearch {
+	text-align: center;
+	color:#FF0000;
+}
+
+h1.mountainList {
+	text-align: center;
+	color:#FF0000;
+}
+
+.link {
+	text-align: center;
+}
+
+a.link {
+	color: #FFA500;
+	font-size: 200%;
+}
+
+.formResearch {
+	margin-left: auto;
+	margin-right: auto;
+}
+table.formResearch{
+	text-align: center;
+}
+
+.backFromResearch {
+	text-align: center;
+}
+
+input.buttonResearch{
+	background-color:#FFA500;
+	font-weight: bold;
+}
+
+label.formResearch{
+	font-weight: bold;
+	color: #FFA500;
+}
+
+input.formResearch{
+	background-color:#FFD700;
+	font-weight: bold;
+}

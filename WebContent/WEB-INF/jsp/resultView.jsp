@@ -5,8 +5,10 @@
 <link rel="stylesheet" href="<c:url value="/jsp/css/resultView.css"/>" />
 <title>images</title>
 </head>
-<body>
-
+<body class="image">
+	<div id="image">
+		<h1 class="image">FOUND IMAGES</h1>
+	</div>
 	<form:form method="post" action="saveImage.html">
 		<input type="hidden" name="name" value="${research.name}">
 		<div id="view">

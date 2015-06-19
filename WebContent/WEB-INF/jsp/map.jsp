@@ -129,8 +129,7 @@ html, body, #map-canvas {
 			<input type="submit" value="Back Home">
 		</form:form>
 	</div>
-
-
+	
 	<div class="row">
 		<div class="style-select">
 			<p style="margin: 24px 0 12px; color: #444;">Demo gallery style</p>
