@@ -2,6 +2,7 @@ html, body {
 	height: 100%;
 	padding: 0;
 	margin: 0;
+	font-family: Calibri;
 }
 
 #image{
@@ -31,6 +32,21 @@ html, body {
 	overflow: hidden;
 }
 
-h1{
+
+h1,p{
+	text-align: center;
+	color:#FF0000;
+	font-weight: bold;
+}
+
+input.back{
+	text-align: center;
+	background-color: #FFA500;
+	font-weight: bold;
+}
+
+.back{
 	text-align: center;
 }
+
+

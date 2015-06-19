@@ -1,3 +1,6 @@
+body {
+	font-family: Calibri;
+}
 h1.index {
 	text-align: center;
 	color: #FF0000;
@@ -47,5 +50,25 @@ label.formResearch{
 
 input.formResearch{
 	background-color:#FFD700;
+	font-weight: bold;
+}
+
+#list {
+	width: 50%;
+	height: 100%;
+	float: left;
+	overflow: auto;
+}
+
+#backFromList {
+	text-align: center;
+	width:50%;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+}
+
+input.backFromList {
+	background-color: #FFD700;
 	font-weight: bold;
 }

@@ -1,5 +1,6 @@
 package it.polimi.awt.controller;
 
+import it.polimi.awt.domain.Mountain;
 import it.polimi.awt.domain.SavedPhoto;
 import it.polimi.awt.service.SavedMountainService;
 
@@ -28,6 +29,7 @@ public class MapController {
 		}
 		model.addAttribute("mountains", mountains);
 		model.addAttribute("mountainMatrix", mountainMatrix);
+		model.addAttribute("command", new Mountain());
 
 
 		return "map";

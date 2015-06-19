@@ -2,6 +2,7 @@ html, body {
 	height: 100%;
 	padding: 0;
 	margin: 0;
+	font-family: Calibri;
 }
 
 #map-canvas {
@@ -11,7 +12,20 @@ html, body {
 }
 
 #back {
+	text-align: center;
 	width: 20%;
-	height: 20%;
+	height: 100%;
 	float: left;
+	background-color: #87CEFA;
+}
+
+input.bReesearch {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+label.newResearch {
+	text-align: center;
+	font-weight: bold;
 }

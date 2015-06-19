@@ -1,6 +1,9 @@
 package it.polimi.awt.controller;
 
+import java.util.List;
+
 import it.polimi.awt.domain.Mountain;
+import it.polimi.awt.domain.SavedPhoto;
 import it.polimi.awt.service.FillMountainService;
 import it.polimi.awt.service.MountainService;
 import it.polimi.awt.service.ResearchService;
@@ -42,24 +45,33 @@ public class ResearchController {
 		if(mont==null){
 			if(rsi.validMountain(research, ms.findAll())){
 				research=fmi.getMountain(research, ms.findAll());
-				model.addAttribute("mountain", rs.getSavedMountain(research));
-				model.addAttribute("research", research);
-				return "resultView";
+				List<SavedPhoto> savedMountain= rs.getSavedMountain(research);
+				if(savedMountain.size()==0){
+					return "photoNotFound";
+				}else{
+					model.addAttribute("mountain", rs.getSavedMountain(research));
+					model.addAttribute("research", research);
+					System.out.println(savedMountain.size()+" ");
+					return "resultView";
+				}
 			}else if(rsi.containedMountain(research, ms.findAll())){
 				model.addAttribute("correctmountain", rsi.findListMountain(research));
 				return "showList";
-			}
-			
-			else{
+			}else{
 				model.addAttribute("command", new Mountain());
 				return "mountainResearch";
 			}
 		}else{
 			research=fmi.getMountain(ms.findByName(mont), ms.findAll());
-			model.addAttribute("mountain", rs.getSavedMountain(research));
-			model.addAttribute("research", research);
-			System.out.println(mont);
-			return "resultView";
+			List<SavedPhoto> savedMountain= rs.getSavedMountain(research);
+			if(savedMountain.size()==0){
+				return "photoNotFound";
+			}else{
+				model.addAttribute("mountain", rs.getSavedMountain(research));
+				model.addAttribute("research", research);
+				System.out.println(savedMountain.size()+" ");
+				return "resultView";
+			}
 		}
 		
 		
