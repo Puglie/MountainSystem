@@ -11,7 +11,7 @@ public class Mountain {
 	@Id private String id;
 	private String name;
 	private String elevation;
-	private String location;
+	//private String location;
 	private String prom;
 	private String latitude_decimal;
 	private String longitude_decimal;
@@ -81,19 +81,19 @@ public class Mountain {
 	public String getName() {
 		return name;
 	}
-	@Override
+/*	@Override
 	public String toString() {
 		return "Research [name=" + name + ", location=" + location + "]";
-	}
+	}*/
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getLocation() {
+	/*public String getLocation() {
 		return location;
 	}
 	public void setLocation(String location) {
 		this.location = location;
-	}
+	}*/
 	
 	
 
