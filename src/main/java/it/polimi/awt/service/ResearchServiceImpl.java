@@ -69,7 +69,8 @@ public class ResearchServiceImpl implements ResearchService {
 		return isPresent;
 	}
 	
-	public Boolean validMountain(Mountain research, List<Mountain> mountains) {
+	@Override
+	public boolean validMountain(Mountain research, List<Mountain> mountains) {
 		Mountain mountain;
 		boolean isPresent=false;
 		Iterator<Mountain> iterator = mountains.iterator();
@@ -84,16 +85,15 @@ public class ResearchServiceImpl implements ResearchService {
 		return isPresent;
 	}
 	
-	public Boolean containedMountain(Mountain research, List<Mountain> mountains) {
+	@Override
+	public boolean containedMountain(Mountain research, List<Mountain> mountains) {
 		Mountain mountain;
 		boolean isPresent=false;
 		Iterator<Mountain> iterator = mountains.iterator();
 	    while (iterator.hasNext()) {
 	        mountain = (Mountain) iterator.next();
-	       // if(research.getName().toUpperCase()..equals(mountain.getName().toUpperCase())){
 	        if(mountain.getName().toUpperCase().contains(research.getName().toUpperCase())){
 	        	isPresent=true;
-	        	
 	        }
 	    }
 		return isPresent;
