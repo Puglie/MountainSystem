@@ -19,12 +19,12 @@
 			</c:forEach>
 		</div>
 		<div id="save">
-			<input type="submit" value="Save Images">
+			<input type="submit" value="Save Images/View Map">
 		</div>
 	</form:form>
 	<div id="index">
 		<form:form method="get" action="index.html">
-			<input type="submit" value="Back Home">
+			<input type="submit" value="Home">
 		</form:form>
 	</div>
 

@@ -28,6 +28,10 @@ public class ResearchController {
 	@Autowired
 	private FillMountainService fmi;
 	
+	/*This method handles the part about new Research of the users.
+	 *It adds to the model a new object Mountain for automatically binding the forms to the object.
+	 *Finally, it returns mountainResearch view.
+	 */
 	@RequestMapping("/mountainResearch")
 	public String mountainResearch(Model model){
 		
@@ -35,6 +39,14 @@ public class ResearchController {
 		return "mountainResearch";
 	}
 	
+	/*This method handles the part about the results of the research. We have three cases.
+	 * 1- The name inserted by the user is present within the database, so it return a list of photos by Flickr.
+	 * 2- The name inserted by the user is a part of a name present within the database, so it return a list of possible mountains.
+	 * 	  Then, the user has the possibility to click on a mountain and the system will return a list of photos by Flickr.
+	 * 3- The name is not present within the database, so the system will remain on the reserach page and the user has the
+	 * 	  possibility to insert another name. 
+	 * 
+	 */
 	@RequestMapping(value="/resultView", method=RequestMethod.POST)
 	public String researchResult(Mountain research, Model model, @RequestParam(value="research", required=false) String mont) throws FlickrException{
 		if(mont==null){

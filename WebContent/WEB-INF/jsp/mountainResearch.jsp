@@ -31,7 +31,7 @@
 		</div>
 		<div class="backFromResearch">
 			<form:form method="post" action="index.html">
-				<input class="buttonResearch" type="submit" value="Back Home" />
+				<input class="buttonResearch" type="submit" value="Home" />
 			</form:form>
 		</div>
 

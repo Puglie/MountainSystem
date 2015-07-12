@@ -41,10 +41,10 @@ public class JpaSaveMountainRepository implements SaveMountainRepository {
 		int i=0;
 		for (String mountain : query.getResultList()) {
 			mountains.add(new ArrayList<SavedPhoto>());
-			TypedQuery<SavedPhoto> queryByName = em.createQuery(
+			TypedQuery<SavedPhoto> savedPhotoByMountain = em.createQuery(
 					"Select b from SavedPhoto b where b.mountain.name='"
 							+ mountain + "'", SavedPhoto.class);
-			for (SavedPhoto savedMountain : queryByName.getResultList()) {
+			for (SavedPhoto savedMountain : savedPhotoByMountain.getResultList()) {
 				mountains.get(i).add(savedMountain);
 			}
 			i++;

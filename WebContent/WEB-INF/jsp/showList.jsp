@@ -24,7 +24,7 @@
 	</div>
 	<div id="backFromList">
 		<form action="index.html" id="resultView" method="post">
-			<input class="backFromList" type="submit" value="Back Home" />
+			<input class="backFromList" type="submit" value="Home" />
 		</form>
 		<form action="mountainResearch.html" id="resultView" method="post">
 			<input class="backFromList" type="submit" value="Back To Research" />

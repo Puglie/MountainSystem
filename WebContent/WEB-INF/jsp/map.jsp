@@ -128,7 +128,7 @@ html, body, #map-canvas {
 	<div id="back">
 		<br> <br><br> <br>
 		<form:form method="get" action="index.html">
-			<input type="submit" value="Back Home">
+			<input type="submit" value="Home">
 		</form:form>
 		<br> <br>
 		<form:form class="newResearch" method="post" action="resultView.html">

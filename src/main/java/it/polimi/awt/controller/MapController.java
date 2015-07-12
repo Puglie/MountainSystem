@@ -19,19 +19,10 @@ public class MapController {
 
 	@RequestMapping(value = "/map")
 	public String getMap(Model model) {
-		List<SavedPhoto> mountains;
-		mountains = sms.getMountains();
 		List<List<SavedPhoto>> mountainMatrix;
 		mountainMatrix = sms.findAllMountainAndSavedMountain();
-		for (SavedPhoto mountain : mountains) {
-			System.out.println(mountain.getMountain().getLatitude() + " "
-					+ mountain.getMountain().getLongitude());
-		}
-		model.addAttribute("mountains", mountains);
 		model.addAttribute("mountainMatrix", mountainMatrix);
 		model.addAttribute("command", new Mountain());
-
-
 		return "map";
 	}
 	
